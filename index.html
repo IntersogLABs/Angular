@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="main.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+</head>
+<body ng-app="FirstApplication">
+    <div ng-controller="MainController">
+        <div class="row">
+        <div class="product col-sm-4">
+            <div class="mainInfo">
+                <img ng-src="{{product.img}}" class="img-thumbnail" alt=""/>
+            </div>
+            <div class="tabs">
+                <div class="tabsHeader">
+                    <div class="btn-group">
+                    <div class=" btn btn-default tab"
+                         ng-class="{active:(activeTab==0)}"
+                            ng-click="activeTab=0">Description</div>
+                    <div class=" btn btn-default tab"
+                         ng-class="{active:(activeTab==1)}"
+                         ng-click="activeTab=1">Comments</div>
+                    </div>
+                </div>
+                <div class="tabsContent">
+                    <div ng-show="activeTab==0" class="content">
+                        {{product.description}}
+                    </div>
+                    <div ng-hide="activeTab==0" class="content">
+                        <div class="comments">
+                            <div class="comment" ng-repeat="comment in product.comments">
+                                <div class="author">{{comment.author}}</div>
+                                <div class="message">{{comment.message}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
