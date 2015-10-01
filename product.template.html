@@ -1,6 +1,5 @@
 <div class="product col-sm-4">
 
-
     <div class="mainInfo">
         <img ng-src="{{product.img}}" class="img-thumbnail" alt=""/>
     </div>
@@ -20,6 +19,9 @@
         <div class="tabsContent">
             <div ng-show="activeTab==0" class="content">
                 {{product.description}}
+                <div style="background-color: #CE0000; color: antiquewhite; width: 80px; border-radius: 7px; margin: auto;"
+                     ng-click="addOrder()">
+                    Order</div>
             </div>
             <div ng-hide="activeTab==0" class="content">
                 <div class="comments list-group">

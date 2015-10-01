@@ -12,5 +12,9 @@
   "dependencies": {
     "angular": "~1.4.6",
     "bootstrap": "~3.3.5"
-  }
+  },
+  "homepage": "https://github.com/IntersogLABs/Angular",
+  "authors": [
+    "vizhukova <veronikazhukova@gmail.com>"
+  ]
 }
