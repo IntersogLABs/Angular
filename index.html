@@ -10,13 +10,55 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
 </head>
 <body ng-app="FirstApplication">
+<div id="load" style="text-align: center">Loading...</div>
 
+<div style="display: inline-block; width: 80%">
+    <div class="row" ng-controller="ProductsListController" id="list" style="text-align: center">
+        <input type="text" ng-model="searchVoucher" style="margin: 20px 113px;; width: 480px;" placeholder="Search..." list="search"/>
+        <datalist id="search">
+            <option>food</option>
+            <option>drink</option>
+            <option>pizza</option>
+            <option>other</option>
+        </datalist>
+        <div id="basket" style="display: inline-block"><img src="basket.jpg" style="width: 60px" ng-click="showOrder()"/></div>
 
-<div>
-    <div class="row" ng-controller="ProductsListController">
-        <div ng-repeat="product in products">
+        <div  role="dialog">
+            <div class="modal-dialog" style="display: none">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Your order</h4>
+                    </div>
+<<<<<<< HEAD
+                    <div ng-hide="activeTab==0" class="content">
+                        <div class="comments">
+                            <div class="comment" ng-repeat="comment in product.comments">
+                                <div class="author">{{comment.author}}</div>
+                                <div class="message">{{comment.message}}</div>
+                            </div>
+                            <div class="post-comment">
+                                    <textarea ng-model="newComment"></textarea>
+                                <div class=" btn"  ng-click="postComment()">Post</div>
+                            </div>
+=======
+                    <div class="modal-body">
+                        <div ng-repeat="product in orders">
+                            <order data="product"></order>
+>>>>>>> origin/master
+                        </div>
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+
+            </div>
+
+        <div ng-repeat="product in products | filterCat:searchVoucher">
             <product data="product"></product>
         </div>
+    </div>
     </div>
 </div>
 
