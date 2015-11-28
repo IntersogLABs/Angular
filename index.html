@@ -37,6 +37,10 @@
                                 <div class="author">{{comment.author}}</div>
                                 <div class="message">{{comment.message}}</div>
                             </div>
+                            <div class="post-comment">
+                                    <textarea ng-model="newComment"></textarea>
+                                <div class=" btn"  ng-click="postComment()">Post</div>
+                            </div>
                         </div>
 
                     </div>

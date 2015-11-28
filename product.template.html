@@ -1,0 +1,42 @@
+<div class="product col-sm-4">
+
+    <div class="mainInfo">
+        <img ng-src="{{product.img}}" class="img-thumbnail" alt=""/>
+    </div>
+    <div class="tabs">
+        <div class="tabsHeader" ng-init="activeTab = 0;">
+            <div class="btn-group">
+                <div class=" btn btn-default tab"
+                     ng-class="{active:(activeTab==0)}"
+                     ng-click="activeTab=0">Description
+                </div>
+                <div class=" btn btn-default tab"
+                     ng-class="{active:(activeTab==1)}"
+                     ng-click="activeTab=1">Comments <span class="badge">{{product.comments.length}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="tabsContent">
+            <div ng-show="activeTab==0" class="content">
+                {{product.description}}
+                <div style="background-color: #CE0000; color: antiquewhite; width: 80px; border-radius: 7px; margin: auto;"
+                     ng-click="addOrder()">
+                    Order</div>
+            </div>
+            <div ng-hide="activeTab==0" class="content">
+                <div class="comments list-group">
+                    <div class="comment list-group-item" ng-repeat="comment in product.comments">
+                        <div class="author"><b>{{comment.author}}</b></div>
+                        <div class="message">{{comment.message}}</div>
+                    </div>
+                </div>
+                <div ng-init="newComment  = {}">
+                    <input type="text" ng-model="newComment.author"/>
+                    <textarea ng-model="newComment.message"></textarea>
+                    <button ng-click="sendComment()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
